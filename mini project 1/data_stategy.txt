@@ -1,0 +1,89 @@
+Dataset Strategy for Grayscale Leaf Images
+
+1. Objective
+
+This dataset consists of grayscale leaf images collected from various plants and trees growing on the MBMU campus. The dataset is structured to train a deep autoencoder for reconstructing leaf images.
+
+2. Dataset Collection
+
+    2.1 Identification
+    Survey the MBMU campus to identify all plant/tree species.
+    Document the scientific and common names for metadata purposes.
+
+    2.2 Image Collection
+    Capture high-resolution images of leaves from different plants/trees in ratio 1:1 and capture images on the white paper.
+    Ensure variations in size, orientation, and texture.
+    Maintain diverse lighting conditions while avoiding extreme shadows and overexposure.
+    Capture images from multiple angles to improve dataset diversity.
+
+    2.3 Labeling & Organization
+    Assign unique identifiers and metadata (species name, collection date).
+    Organize images into the following structure:
+        plaintext
+        Copy
+        Edit
+        Dataset/
+        Plant_1/
+            leaf1.jpg
+            leaf2.jpg
+        Plant_2/
+            leaf1.jpg
+        Include a metadata.csv file containing:
+            Image name
+            Plant species
+            Collection details
+
+3. Preprocessing
+
+    3.1 Conversion to Grayscale
+    Convert all images to grayscale to remove color dependency.
+
+    3.2 Resizing
+    Resize all images to a uniform dimension (e.g., 128x128 or 256x256 pixels).
+
+    3.3 Normalization
+    Normalize pixel values to the range [0, 1] for stable training.
+
+    3.4 Data Augmentation
+    Apply augmentation techniques to enhance dataset diversity:
+
+    Rotation (±15 degrees)
+    Horizontal and vertical flipping
+    Scaling
+    Noise addition
+    3.5 Quality Check
+    Ensure all images meet quality standards (no corruption or extreme distortions).
+
+4. Dataset Splitting
+
+Training Set (80%) – Used for model training.
+Validation Set (10%) – Used for tuning and early stopping.
+Test Set (10%) – Used for final evaluation.
+
+5. Submission Format
+
+    5.1 Dataset Files
+    Structured directory with organized images.
+    metadata.csv file for image details.
+
+    5.2 Preprocessing Code
+    Python scripts for image preprocessing using OpenCV/PIL.
+
+    5.3 Dataset Summary
+    A report including:
+    Total images collected
+    Number of unique plant species
+    Sample images before and after preprocessing
+
+6. Dataset Submission Checklist
+
+✅ Organized dataset directory
+✅ metadata.csv with image details
+✅ Preprocessing scripts (preprocess.py)
+✅ Summary report (Dataset_Report.md)
+
+7. Tools & Libraries
+
+Image Collection: DSLR/Mobile Camera
+Preprocessing: Python, OpenCV, PIL, NumPy, Pandas
+Autoencoder Framework: TensorFlow/Keras or PyTorch
